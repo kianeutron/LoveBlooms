@@ -539,7 +539,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 />
 
                 {/* Large billowing clouds - background layer */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 8 : 15)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`bg-cloud-${i}`}
                     initial={{ 
@@ -570,14 +570,14 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         radial-gradient(ellipse 100% 60% at 40% 40%, rgba(255,255,255,0.95), rgba(255,255,255,0.7) 50%, rgba(245,250,255,0.3) 75%, transparent),
                         radial-gradient(ellipse 80% 50% at 60% 50%, rgba(250,252,255,0.8), transparent 70%)
                       `,
-                      filter: "blur(8px)",
+                      filter: "blur(4px)",
                       boxShadow: "0 10px 40px rgba(173,216,230,0.3)"
                     }}
                   />
                 ))}
 
                 {/* Medium clouds - middle layer with more detail */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 12 : 25)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 10)].map((_, i) => (
                   <motion.div
                     key={`mid-cloud-${i}`}
                     initial={{ 
@@ -612,7 +612,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Foreground wispy clouds */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 20)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 8)].map((_, i) => (
                   <motion.div
                     key={`fg-cloud-${i}`}
                     initial={{ 
@@ -649,7 +649,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Dreamy bokeh light particles */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 8 : 15)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`bokeh-${i}`}
                     initial={{ 
@@ -716,7 +716,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 />
 
                 {/* Sweeping cloud waves - horizontal layers */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 20 : 40)].map((_, i) => {
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 10)].map((_, i) => {
                   const layer = Math.floor(i / 8);
                   const speed = 3 + layer * 0.8;
                   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -761,7 +761,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 })}
 
                 {/* Diagonal flowing clouds */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 15 : 30)].map((_, i) => {
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 8)].map((_, i) => {
                   const speed = 4 + Math.random() * 2;
                   const startX = Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200);
                   const startY = -150;
@@ -805,7 +805,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 })}
 
                 {/* Radial expanding clouds - depth effect */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 18)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`radial-${i}`}
                     initial={{ 
@@ -838,7 +838,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Light ray streaks */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 10)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 5)].map((_, i) => (
                   <motion.div
                     key={`ray-${i}`}
                     initial={{ 
@@ -1634,7 +1634,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
               }}
             />
             {/* Magical floating elements - mobile optimized */}
-            {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 12 : 25)].map((_, i) => {
+            {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 8)].map((_, i) => {
               const shapes = ['✨', '🍂', '🦋', '💫', '🌙', '⭐', '🌰', '🕊️'];
               const shape = shapes[i % shapes.length];
               
@@ -2458,7 +2458,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
           <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 20 }}>
             
             {/* Optimized fallback emoji hearts */}
-            {[...Array(6)].map((_, i) => (
+            {[...Array(3)].map((_, i) => (
               <motion.div
                 key={`fallback-heart-${i}`}
                 className="absolute text-3xl opacity-40 will-change-transform"
@@ -2491,7 +2491,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
             </div>
 
             {/* Optimized floating flowers */}
-            {[...Array(8)].map((_, i) => {
+            {[...Array(4)].map((_, i) => {
               const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹', '💐'];
               const randomX = Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200);
               const randomY = Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800);

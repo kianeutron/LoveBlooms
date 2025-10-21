@@ -55,7 +55,7 @@ export default function HeartsScene() {
   const hearts = useMemo(() => {
     const arr: { position: [number, number, number]; color: string; scale: number }[] = [];
     const palette = ["#ff1744", "#ff4081", "#f50057", "#ff6090", "#c51162", "#e91e63"];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 8; i++) {
       arr.push({
         position: [
           (Math.random() - 0.5) * 10,
@@ -72,19 +72,18 @@ export default function HeartsScene() {
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas 
-        shadows 
+        shadows={false}
         camera={{ position: [0, 0, 8], fov: 75 }}
         style={{ background: 'transparent' }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ alpha: true, antialias: false, powerPreference: 'high-performance' }}
+        dpr={[1, 1.5]}
       >
-        <ambientLight intensity={1.5} />
-        <directionalLight position={[3, 5, 2]} intensity={2} castShadow />
-        <pointLight position={[-3, 2, 3]} intensity={1.5} color="#ff69b4" />
-        <Environment preset="sunset" />
+        <ambientLight intensity={1.2} />
+        <directionalLight position={[3, 5, 2]} intensity={1.5} />
         {hearts.map((h, idx) => (
           <Heart key={idx} position={h.position} color={h.color} scale={h.scale} />
         ))}
-        <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={1.5} />
+        <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={1} />
       </Canvas>
     </div>
   );
