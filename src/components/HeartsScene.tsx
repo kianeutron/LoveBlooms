@@ -51,11 +51,15 @@ function Heart({ position = [0, 0, 0], color = "#ff4d6d", scale = 1 }) {
 }
 
 export default function HeartsScene() {
+  // Disable 3D hearts on mobile for performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  
   // Optimized hearts for better performance
   const hearts = useMemo(() => {
     const arr: { position: [number, number, number]; color: string; scale: number }[] = [];
     const palette = ["#ff1744", "#ff4081", "#f50057", "#ff6090", "#c51162", "#e91e63"];
-    for (let i = 0; i < 8; i++) {
+    const count = isMobile ? 0 : 6; // Disable on mobile, reduce to 6 on desktop
+    for (let i = 0; i < count; i++) {
       arr.push({
         position: [
           (Math.random() - 0.5) * 10,
@@ -67,7 +71,29 @@ export default function HeartsScene() {
       });
     }
     return arr;
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    // Return simple 2D hearts on mobile instead
+    return (
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-6xl opacity-20 animate-pulse"
+            style={{
+              left: `${20 + i * 30}%`,
+              top: `${30 + i * 20}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: '3s'
+            }}
+          >
+            💕
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="absolute inset-0 w-full h-full">
