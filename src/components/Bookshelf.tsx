@@ -539,7 +539,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 />
 
                 {/* Large billowing clouds - background layer */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 6)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`bg-cloud-${i}`}
                     initial={{ 
@@ -577,7 +577,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Medium clouds - middle layer with more detail */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 10)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 10)].map((_, i) => (
                   <motion.div
                     key={`mid-cloud-${i}`}
                     initial={{ 
@@ -612,7 +612,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Foreground wispy clouds */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 8)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 8)].map((_, i) => (
                   <motion.div
                     key={`fg-cloud-${i}`}
                     initial={{ 
@@ -649,7 +649,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Dreamy bokeh light particles */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 6)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`bokeh-${i}`}
                     initial={{ 
@@ -716,7 +716,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 />
 
                 {/* Sweeping cloud waves - horizontal layers */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 10)].map((_, i) => {
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 10)].map((_, i) => {
                   const layer = Math.floor(i / 8);
                   const speed = 3 + layer * 0.8;
                   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -761,7 +761,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 })}
 
                 {/* Diagonal flowing clouds */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 8)].map((_, i) => {
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 8)].map((_, i) => {
                   const speed = 4 + Math.random() * 2;
                   const startX = Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200);
                   const startY = -150;
@@ -805,7 +805,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 })}
 
                 {/* Radial expanding clouds - depth effect */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 6)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 6)].map((_, i) => (
                   <motion.div
                     key={`radial-${i}`}
                     initial={{ 
@@ -838,7 +838,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 ))}
 
                 {/* Light ray streaks */}
-                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 5)].map((_, i) => (
+                {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 5)].map((_, i) => (
                   <motion.div
                     key={`ray-${i}`}
                     initial={{ 
@@ -1634,7 +1634,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
               }}
             />
             {/* Magical floating elements - mobile optimized */}
-            {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 8)].map((_, i) => {
+            {[...Array(typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 8)].map((_, i) => {
               const shapes = ['✨', '🍂', '🦋', '💫', '🌙', '⭐', '🌰', '🕊️'];
               const shape = shapes[i % shapes.length];
               
@@ -2022,16 +2022,17 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                                 rotateY: -15,
                                 rotateX: 5,
                                 rotateZ: 0,
-                                transition: typeof window !== 'undefined' && window.innerWidth < 768 
-                                  ? { duration: 0.4, ease: "easeOut" }
-                                  : { type: "spring", stiffness: 100, damping: 18, delay: 0.1 }
+                                transition: { 
+                                  type: "spring", 
+                                  stiffness: 100, 
+                                  damping: 18,
+                                  delay: 0.1
+                                }
                               }
                             : { rotateY: -2, z: 0, x: 0, y: 0, scale: 1, rotateX: 0, rotateZ: b.tilt }
                         }
                         whileHover={opened ? undefined : { rotateY: -14, z: 8 }}
-                        transition={typeof window !== 'undefined' && window.innerWidth < 768 
-                          ? { duration: 0.2, ease: "easeOut" }
-                          : { type: "spring", stiffness: 220, damping: 20 }}
+                        transition={{ type: "spring", stiffness: 220, damping: 20 }}
                         style={{ 
                           transformStyle: "preserve-3d" as React.CSSProperties["transformStyle"], 
                           height: `${b.height}%`,
@@ -2049,9 +2050,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         <motion.div
                           initial={false}
                           animate={opened && b.id === selectedId ? { rotateY: -150 } : { rotateY: 0 }}
-                          transition={typeof window !== 'undefined' && window.innerWidth < 768
-                            ? { duration: 0.4, ease: "easeOut", delay: opened && b.id === selectedId ? 0.2 : 0 }
-                            : { type: "spring", stiffness: 180, damping: 18, delay: opened && b.id === selectedId ? 0.4 : 0 }}
+                          transition={{ type: "spring", stiffness: 180, damping: 18, delay: opened && b.id === selectedId ? 0.4 : 0 }}
                           style={{
                             transformOrigin: "left",
                             transformStyle: "preserve-3d",
