@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 
 export default function LoveBursts() {
   const containerRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const animeRef = useRef<any>(null);
 
   const spawnBurst = useCallback((x: number, y: number) => {
@@ -47,6 +48,7 @@ export default function LoveBursts() {
 
   useEffect(() => {
     // Dynamically import animejs only on the client and support both default and namespace exports
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     import("animejs").then((mod: any) => {
       animeRef.current = mod.default ?? mod;
     }).catch(() => {

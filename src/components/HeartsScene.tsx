@@ -45,7 +45,7 @@ function Heart({ position = [0, 0, 0], color = "#ff4d6d", scale = 1 }) {
 
   return (
     <Float speed={1.5} rotationIntensity={1.2} floatIntensity={2}>
-      <mesh ref={mesh} geometry={geometry} material={material} position={position as any} scale={scale} castShadow receiveShadow />
+      <mesh ref={mesh} geometry={geometry} material={material} position={position as [number, number, number]} scale={scale} castShadow receiveShadow />
     </Float>
   );
 }

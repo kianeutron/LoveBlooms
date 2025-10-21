@@ -21,10 +21,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
   const frameRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
   const [cloudPhase, setCloudPhase] = useState<'none' | 'filling' | 'traveling' | 'newWorld'>('none');
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [audio] = useState<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showScrollMessage, setShowScrollMessage] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [, setScrollProgress] = useState(0);
   const [revealedCards, setRevealedCards] = useState<boolean[]>(new Array(7).fill(false));
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -1729,7 +1729,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                     transition={{ delay: 5.5, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                     className="text-base sm:text-lg md:text-xl text-amber-900 mb-6 sm:mb-8 leading-relaxed font-medium"
                   >
-                    You've journeyed through the clouds and arrived in a magical realm where dreams come alive. 
+                    You&apos;ve journeyed through the clouds and arrived in a magical realm where dreams come alive. 
                     This is your sanctuary of imagination and wonder.
                   </motion.p>
 
@@ -2034,7 +2034,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         whileHover={opened ? undefined : { rotateY: -14, z: 8 }}
                         transition={{ type: "spring", stiffness: 220, damping: 20 }}
                         style={{ 
-                          transformStyle: "preserve-3d" as any, 
+                          transformStyle: "preserve-3d" as React.CSSProperties["transformStyle"], 
                           height: `${b.height}%`,
                           ...(opened && b.id === selectedId ? { 
                             position: "fixed" as const,
@@ -2543,7 +2543,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 className="mb-16 p-6 bg-white/40 backdrop-blur-lg rounded-2xl border border-pink-200/50 shadow-2xl"
               >
                 <p className="text-lg sm:text-xl md:text-2xl text-rose-800 leading-relaxed font-medium">
-                  I'M WRITING THIS MYSELF SO THERE'S NO CHATGPT😩
+                  I&apos;M WRITING THIS MYSELF SO THERE&apos;S NO CHATGPT😩
                 </p>
               </motion.div>
 
@@ -2557,7 +2557,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 className="mb-16 p-6 bg-white/40 backdrop-blur-lg rounded-2xl border border-pink-200/50 shadow-2xl"
               >
                 <p className="text-lg sm:text-xl md:text-2xl text-rose-800 leading-relaxed font-medium">
-                  THIS FEELS LIKE I'M WRITING A LETTER TO BE HONEST BUT ANYWAYS.
+                  THIS FEELS LIKE I&apos;M WRITING A LETTER TO BE HONEST BUT ANYWAYS.
                 </p>
               </motion.div>
 
@@ -2571,7 +2571,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 className="mb-16 p-6 bg-white/40 backdrop-blur-lg rounded-2xl border border-pink-200/50 shadow-2xl"
               >
                 <p className="text-lg sm:text-xl md:text-2xl text-rose-800 leading-relaxed font-medium">
-                  JUST WANTED TO SAY THAT I'M SO HAPPY THAT YOU TEXTED ME THE FIRST DAY AND I'M HAPPY THAT WE ARE TOGETHER NOW.
+                  JUST WANTED TO SAY THAT I&apos;M SO HAPPY THAT YOU TEXTED ME THE FIRST DAY AND I&apos;M HAPPY THAT WE ARE TOGETHER NOW.
                 </p>
               </motion.div>
 
@@ -2599,7 +2599,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 className="mb-16 p-6 bg-white/40 backdrop-blur-lg rounded-2xl border border-pink-200/50 shadow-2xl"
               >
                 <p className="text-lg sm:text-xl md:text-2xl text-rose-800 leading-relaxed font-medium">
-                  I'M HAPPY THAT I EXPERIENCED ALL OF THESE GOOD THINGS WITH SUCH A BEAUTIFUL, KIND AND SUPPORTIVE GIRL.
+                  I&apos;M HAPPY THAT I EXPERIENCED ALL OF THESE GOOD THINGS WITH SUCH A BEAUTIFUL, KIND AND SUPPORTIVE GIRL.
                 </p>
               </motion.div>
 
@@ -2613,7 +2613,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 className="mb-16 p-6 bg-white/40 backdrop-blur-lg rounded-2xl border border-pink-200/50 shadow-2xl"
               >
                 <p className="text-lg sm:text-xl md:text-2xl text-rose-800 leading-relaxed font-medium">
-                  LITERALLY ONE OF THE BEST GIRLS I HAVE EVER MET AND I WON'T FORGET ABOUT YOU EVER.
+                  LITERALLY ONE OF THE BEST GIRLS I HAVE EVER MET AND I WON&apos;T FORGET ABOUT YOU EVER.
                 </p>
               </motion.div>
 
