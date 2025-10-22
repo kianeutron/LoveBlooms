@@ -519,7 +519,9 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                     radial-gradient(ellipse 1100px 800px at 80% 70%, rgba(250,250,255,0.85), rgba(240,245,255,0.5) 60%, transparent),
                     linear-gradient(135deg, rgba(173,216,230,0.4) 0%, rgba(176,224,230,0.5) 30%, rgba(240,248,255,0.7) 70%, rgba(255,255,255,0.8) 100%)
                   `,
-                  backdropFilter: "blur(0px)"
+                  willChange: 'opacity',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden' as const
                 }}
               >
                 {/* Atmospheric glow effects */}
@@ -534,7 +536,9 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                       radial-gradient(circle at 30% 60%, rgba(173,216,230,0.3), transparent 40%),
                       radial-gradient(circle at 70% 50%, rgba(176,224,230,0.3), transparent 40%)
                     `,
-                    filter: "blur(60px)"
+                    filter: "blur(30px)",
+                    willChange: 'opacity',
+                    transform: 'translateZ(0)'
                   }}
                 />
 
@@ -570,8 +574,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         radial-gradient(ellipse 100% 60% at 40% 40%, rgba(255,255,255,0.95), rgba(255,255,255,0.7) 50%, rgba(245,250,255,0.3) 75%, transparent),
                         radial-gradient(ellipse 80% 50% at 60% 50%, rgba(250,252,255,0.8), transparent 70%)
                       `,
-                      filter: "blur(4px)",
-                      boxShadow: "0 10px 40px rgba(173,216,230,0.3)"
+                      filter: "blur(2px)",
+                      boxShadow: "0 10px 40px rgba(173,216,230,0.3)",
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)'
                     }}
                   />
                 ))}
@@ -605,8 +611,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         radial-gradient(ellipse 100% 60% at 35% 35%, rgba(255,255,255,1), rgba(255,255,255,0.85) 45%, rgba(240,248,255,0.5) 70%, transparent),
                         radial-gradient(ellipse 70% 50% at 65% 45%, rgba(250,252,255,0.9), rgba(245,250,255,0.4) 60%, transparent)
                       `,
-                      filter: "blur(4px)",
-                      boxShadow: "0 8px 25px rgba(173,216,230,0.25), inset -5px -5px 15px rgba(173,216,230,0.15)"
+                      filter: "blur(2px)",
+                      boxShadow: "0 8px 25px rgba(173,216,230,0.25), inset -5px -5px 15px rgba(173,216,230,0.15)",
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)'
                     }}
                   />
                 ))}
@@ -642,8 +650,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                       background: `
                         radial-gradient(ellipse 100% 60% at 50% 50%, rgba(255,255,255,0.98), rgba(255,255,255,0.75) 50%, rgba(250,252,255,0.4) 75%, transparent)
                       `,
-                      filter: "blur(2px)",
-                      boxShadow: "0 5px 20px rgba(255,255,255,0.5)"
+                      filter: "blur(1px)",
+                      boxShadow: "0 5px 20px rgba(255,255,255,0.5)",
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)'
                     }}
                   />
                 ))}
@@ -695,7 +705,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                   background: `
                     radial-gradient(ellipse 120% 100% at 50% 50%, rgba(248,252,255,0.98), rgba(240,248,255,0.95) 40%, rgba(230,242,255,0.92) 70%, rgba(220,235,250,0.9)),
                     linear-gradient(180deg, rgba(173,216,230,0.15) 0%, rgba(176,224,230,0.1) 50%, rgba(173,216,230,0.15) 100%)
-                  `
+                  `,
+                  willChange: 'opacity',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden' as const
                 }}
               >
                 {/* Central bright glow - dream portal effect */}
@@ -711,7 +724,9 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                     width: '600px',
                     height: '600px',
                     background: 'radial-gradient(circle, rgba(255,255,255,0.9), rgba(240,248,255,0.6) 30%, rgba(173,216,230,0.3) 50%, transparent 70%)',
-                    filter: 'blur(80px)'
+                    filter: 'blur(40px)',
+                    willChange: 'transform, opacity',
+                    transform: 'translateZ(0)'
                   }}
                 />
 
@@ -753,8 +768,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                           radial-gradient(ellipse 100% 60% at 45% 45%, rgba(255,255,255,0.95), rgba(255,255,255,0.75) 40%, rgba(240,248,255,0.4) 65%, transparent),
                           radial-gradient(ellipse 80% 50% at 55% 50%, rgba(250,252,255,0.85), transparent 70%)
                         `,
-                        filter: `blur(${3 + layer * 1.5}px)`,
-                        boxShadow: '0 10px 40px rgba(173,216,230,0.3)'
+                        filter: `blur(${2 + layer}px)`,
+                        boxShadow: '0 10px 40px rgba(173,216,230,0.3)',
+                        willChange: 'transform, opacity',
+                        transform: 'translateZ(0)'
                       }}
                     />
                   );
@@ -797,8 +814,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                         background: `
                           radial-gradient(ellipse 100% 60% at 50% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0.6) 50%, rgba(245,250,255,0.3) 70%, transparent)
                         `,
-                        filter: 'blur(5px)',
-                        boxShadow: '0 8px 30px rgba(255,255,255,0.4)'
+                        filter: 'blur(2px)',
+                        boxShadow: '0 8px 30px rgba(255,255,255,0.4)',
+                        willChange: 'transform, opacity',
+                        transform: 'translateZ(0)'
                       }}
                     />
                   );
@@ -832,7 +851,9 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                       height: `${50 + Math.random() * 50}px`,
                       borderRadius: '50%',
                       background: `radial-gradient(ellipse 100% 60% at 50% 50%, rgba(255,255,255,0.85), rgba(245,250,255,0.5) 50%, transparent 75%)`,
-                      filter: 'blur(10px)'
+                      filter: 'blur(5px)',
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)'
                     }}
                   />
                 ))}
@@ -916,7 +937,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
                 style={{
                   background: `
                     radial-gradient(ellipse 1400px 1000px at 50% 50%, rgba(250,252,255,0.95), rgba(240,248,255,0.75) 40%, rgba(230,242,255,0.5) 65%, rgba(220,235,250,0.2) 85%, transparent)
-                  `
+                  `,
+                  willChange: 'opacity',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden' as const
                 }}
               >
                 {/* Soft glowing backdrop fade */}
@@ -1096,9 +1120,10 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
       <AnimatePresence>
         {cloudPhase === 'newWorld' && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, filter: "blur(20px)" }}
+            initial={{ opacity: 0, scale: 0.92, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ delay: 1.5, duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{ willChange: 'transform, opacity, filter' }}
             className="fixed inset-0 z-30 flex items-center justify-center overflow-hidden"
           >
             {/* Realistic room environment background */}
