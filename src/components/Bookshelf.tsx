@@ -1447,7 +1447,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 4.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-16 sm:right-28 top-42 sm:top-32 pointer-events-none"
+              className="absolute right-16 sm:right-28 top-32 sm:top-15 pointer-events-none"
               style={{ zIndex: 16 }}
             >
               <div className="relative" style={{ width: '56px', height: '50px' }}>
@@ -1552,7 +1552,7 @@ export default function Bookshelf({ onPickCorrect }: { onPickCorrect: () => void
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 4.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-16 sm:left-28 bottom-40 sm:bottom-40 pointer-events-none"
+              className="absolute left-16 sm:left-28 bottom-50 sm:bottom-55 pointer-events-none"
               style={{ zIndex: 16 }}
             >
               <div className="relative" style={{ width: '60px', height: '52px' }}>
